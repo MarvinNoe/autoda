@@ -1,0 +1,4 @@
+MODEL_FACTORY_NAME = 'model'
+DATASET_FACTORY_NAME = 'dataset'
+TRAINING_FACTORY_NAME = 'training'
+ROUTINE_FACTORY_NAME = 'routine'

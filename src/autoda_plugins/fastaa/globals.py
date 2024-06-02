@@ -1,0 +1,7 @@
+POLICY_PREFIX = 'policy'
+PROB_PREFIX = 'prob'
+LEVEL_PREFIX = 'level'
+
+POLICY_PREFIX_DF = f'config/{POLICY_PREFIX}'
+PROB_PREFIX_DF = f'config/{PROB_PREFIX}'
+LEVEL_PREFIX_DF = f'config/{LEVEL_PREFIX}'

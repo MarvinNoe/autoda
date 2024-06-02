@@ -1,0 +1,5 @@
+PROB = 'prob'
+NUM_COLOR_TRANSFORMS = 'num_col'
+NUM_GEOMETRY_TRANSFORMS = 'num_geo'
+LEVEL_COLOR = 'level_col'
+LEVEL_GEOMETRY = 'level_geo'

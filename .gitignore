@@ -1,0 +1,13 @@
+.venv
+.venv_debug
+.venv39_debug
+.venv39_debug_linux
+__pycache__
+.coverage
+doc
+datasets
+tests/tmp
+outputs/
+confs/local/
+
+!src/autoda_plugins/datasets/

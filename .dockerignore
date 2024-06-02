@@ -1,0 +1,6 @@
+# Ignore everything
+*
+
+!datasets/
+!requirements.txt
+!requirements-gcp.txt

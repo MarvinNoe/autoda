@@ -1,0 +1,37 @@
+plugins:
+  paths:
+  names:
+    - autoda_plugins.plugins.datasets_plugin
+    - autoda_plugins.plugins.collections_plugin
+    - autoda_plugins.plugins.factories_plugin
+    - autoda_plugins.plugins.models_plugin
+    - autoda_plugins.plugins.routines_plugin
+dataset:
+  type: "torch.GC10DET"
+  root: "./datasets"
+  use_transforms_v2: true
+  download: true
+  transforms:
+    type: "SSD300_VGG16_Weights.COCO_V1"
+model:
+  type: "torch.ssd_vgg16"
+  size: 300
+  num_classes: 11
+  weights:
+    type: "SSD300_VGG16_Weights.COCO_V1"
+  trainable_backbone_layers: 4
+  progress: true
+augmenter:
+  type: "torch.augmenter.extended.double"
+  placeholder: 0
+routine:
+  type: "torch.train.detection.StratifiedKFold"
+  epochs: 50
+  batch_size: 16
+  num_workers: 1
+  folds: 10
+  random_seed: 42
+  device: "cuda"
+  output_dir: "./outputs/experiments/exp03/train/baseline_training_double"
+#  train_ratio: 0.8
+  test_indices_file: "./outputs/test_indices/test_indices_20.txt"

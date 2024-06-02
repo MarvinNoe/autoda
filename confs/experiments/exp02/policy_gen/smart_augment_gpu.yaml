@@ -1,0 +1,40 @@
+plugins:
+  paths:
+  names:
+    - autoda_plugins.plugins.datasets_plugin
+    - autoda_plugins.plugins.collections_plugin
+    - autoda_plugins.plugins.factories_plugin
+    - autoda_plugins.plugins.models_plugin
+    - autoda_plugins.plugins.routines_plugin
+dataset:
+  type: "torch.GC10DET"
+  root: "./datasets"
+  use_transforms_v2: true
+  download: false
+  transforms:
+    type: "SSD300_VGG16_Weights.COCO_V1"
+model:
+  type: "torch.ssd_vgg16"
+  size: 300
+  num_classes: 11
+  weights:
+    type: "SSD300_VGG16_Weights.COCO_V1"
+  trainable_backbone_layers: 4
+  progress: true
+routine:
+  type: "torch.routine.SmartAugmentRoutine"
+  epochs: 50
+  batch_size: 16
+  num_workers: 4
+  num_samples: 50 # B = 50
+  max_concurrent: 4 # 20
+  geometry_transforms:
+    type: "smart_aug.gc10_geometry_transforms"
+  color_transforms:
+    type: "smart_aug.gc10_color_transforms"
+  device: "cuda"
+  output_dir: "./outputs/experiments/exp02/policy_gen/smart_augment_gcp/"
+  save_name_prefix: "best_model"
+  test_indices_file: "./outputs/test_indices/test_indices_20.txt"
+  val_ratio: 0.1 # 10% of training data means 8% of total data
+  random_seed: 42

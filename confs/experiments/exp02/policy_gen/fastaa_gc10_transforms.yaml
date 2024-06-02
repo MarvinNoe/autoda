@@ -1,0 +1,43 @@
+plugins:
+  paths:
+  names:
+    - autoda_plugins.plugins.datasets_plugin
+    - autoda_plugins.plugins.collections_plugin
+    - autoda_plugins.plugins.factories_plugin
+    - autoda_plugins.plugins.models_plugin
+    - autoda_plugins.plugins.routines_plugin
+dataset:
+  type: "torch.GC10DET"
+  root: "./datasets"
+  use_transforms_v2: true
+  download: false
+  transforms:
+    type: "SSD300_VGG16_Weights.COCO_V1"
+model:
+  type: "torch.ssd_vgg16"
+  size: 300
+  num_classes: 11
+  weights:
+    type: "SSD300_VGG16_Weights.COCO_V1"
+  trainable_backbone_layers: 4
+  progress: true
+routine:
+  type: "torch.routine.FastAA"
+  epochs: 50
+  batch_size: 16
+  num_folds: 5 # K = 5
+  num_steps: 2 # T = 2
+  num_workers: 1
+  num_samples: 200 # B = 200
+  top_n: 10 # N = 10
+  num_policies: 5 # N_T = 5
+  num_ops: 2 # N_τ = 2
+  max_concurrent: 24 # 20
+  transforms_creator:
+    type: "fastaa.gc10_transforms"
+#  train_ratio: 0.8
+  device: "cpu"
+  output_dir: "./outputs/experiments/exp02/policy_gen/fastaa_gc10_transforms/"
+  save_name_prefix: "best_model"
+  test_indices_file: "./outputs/test_indices/test_indices_20.txt"
+  random_seed: 42

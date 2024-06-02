@@ -1,0 +1,26 @@
+--extra-index-url https://download.pytorch.org/whl/cu118
+
+certifi
+charset-normalizer
+filelock
+fsspec
+idna
+Jinja2
+MarkupSafe
+mpmath
+networkx
+numpy
+Pillow
+requests
+sympy
+torch
+torchvision
+torchmetrics
+typing_extensions
+urllib3
+defusedxml
+kaggle
+scikit-learn
+torchmetrics[detection]
+hyperopt
+cryptography

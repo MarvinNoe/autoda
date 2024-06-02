@@ -1,0 +1,16 @@
+[flake8]
+
+per-file-ignores =
+        tests/*: S101
+        __init__.py: F401
+
+max-complexity = 10
+
+exclude =
+    ./.git,
+    ./.venv_debug,
+    ./.venv
+
+no-accept-encodings = True
+
+max-line-length = 100

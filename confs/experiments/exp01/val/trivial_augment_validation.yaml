@@ -1,0 +1,30 @@
+plugins:
+  paths:
+  names:
+    - autoda_plugins.plugins.datasets_plugin
+    - autoda_plugins.plugins.collections_plugin
+    - autoda_plugins.plugins.factories_plugin
+    - autoda_plugins.plugins.models_plugin
+    - autoda_plugins.plugins.routines_plugin
+dataset:
+  type: "torch.GC10DET"
+  root: "./datasets"
+  use_transforms_v2: true
+  download: true
+  transforms:
+    type: "SSD300_VGG16_Weights.COCO_V1"
+model:
+  type: "torch.ssd_vgg16"
+  size: 300
+  num_classes: 11
+  progress: true
+routine:
+  type: "torch.validate.detection.ValidateKFold"
+  param_files: "./outputs/experiments/exp01/train/trivial_augment_training/*.pth"
+  device: "cuda"
+  output_dir: "./outputs/experiments/exp01/val/trivial_augment_validation"
+  batch_size: 16
+  num_workers: 1
+  test_indices_file: "./outputs/test_indices/test_indices_20.txt"
+#  test_ratio: 0.2
+  random_seed: 42

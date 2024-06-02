@@ -1,0 +1,16 @@
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+typing_extensions
+pyyaml
+pillow
+torch
+torchvision
+urllib3
+pandas
+ray[tune]
+torchmetrics[detection]
+hyperopt
+scikit-learn
+matplotlib
+kaggle
+defusedxml
