@@ -1,7 +1,7 @@
 # autoda
 
 ## Description
-autoda is a plugin-based system designed to create deep learning pipelines. Plugins for performing k-fold cross-validation training, Fast AutoAugment, and SmartAugment optimization are offered. Additionally, an SSD model and the GC10-DET dataset based on PyTorch are available. The dataset can be augmented with Fast AutoAugment, SmartAugment, and TrivialAugment.
+autoda is a plugin-based system designed to create deep learning pipelines.
 
 Deep learning pipelines can be configured and started via configuration files. To start a pipeline, run:
 
